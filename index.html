@@ -18,23 +18,28 @@
     <main>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
+              <button class="btn btn-outline-secondary" type="button" id="searchbtn">Search</button>
             </div>
-            <input type="text" class="form-control" placeholder="Type in a City" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control" placeholder="Type in a City" aria-label="Example text with button addon" aria-describedby="button-addon1" size="5">
             <div id="search-history-container"></div>
         </div>
         <br>
+        <!-- Results -->
         <div class="container-fluid row justify-content-around">
+            <!-- Left side Current City Results -->
             <div class="col-6" id="current-city-container">
                 <h2>Current City</h2>
             </div>
-
+            <!-- Right side 5 Day Forecast Results -->
             <div class="col-6" id="forecast-5day-container">
                 <h2>5 Day Forecast</h2>
+                <div class="forecast card">
+                    <!-- append forecast results here through createElement on javascript -->
+                </div>
             </div>
         </div>
 
     </main>
-    
+    <script src="./Assets/script.js"></script>
 </body>
 </html>
