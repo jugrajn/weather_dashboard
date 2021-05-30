@@ -1,7 +1,8 @@
 header {
-    background-color: navy;
+    background: linear-gradient(to bottom, #003399 0%, #1d7e7e 100%);
 }
 
 h1 {
     color: #fff;
+    padding: 1em;
 }
