@@ -32,11 +32,12 @@ function getApi() {
              let windValue = data.wind.speed;
 
              NameEl.innerHTML = nameValue;
-             iconEl.setAttribute('src', 'https://openweathermap.org/img/wn/' + iconValue);
+             iconEl.setAttribute('src', 'https://openweathermap.org/img/w/' + iconValue+'.png');
              tempEl.innerHTML = tempValue + '&#176 Celsius';
              humidEl.innerHTML = 'Humidity: ' + humidValue +'%';
              windEl.innerHTML = windValue + "MPH";
 
+            // REQUEST UV INDEX ---------------------------------
              var latValue = data.coord.lat; // Latitude value from response data
              var longValue = data.coord.lon; // Longitude value from response data
 
