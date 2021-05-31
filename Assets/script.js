@@ -11,6 +11,7 @@ var iconEl = document.querySelector('#icon');
 var tempEl = document.querySelector('#temp');
 var humidEl = document.querySelector('#humid');
 var windEl = document.querySelector('#wind');
+var uvIndexEl = document.querySelector('#uvindex');
 
 
 function getApi() {
@@ -39,8 +40,18 @@ function getApi() {
              var latValue = data.coord.lat; // Latitude value from response data
              var longValue = data.coord.lon; // Longitude value from response data
 
-             let uvRequest = 
+            // Set url variable that contains the url for UV index with and insert lon and lat variables from line 39/40 as paramaters to fulfill the url fetch
+             let uvRequest = 'https://api.openweathermap.org/data/2.5/onecall?lat='+latValue+'&lon='+longValue+'&appid=2def30f041fde414f518e072ee1f5cf7';
+            fetch(uvRequest)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data);
 
+                    let uvindexValue = data.current['uvi'];
+                    uvIndexEl.innerHTML = uvindexValue;
+                })
              
         });
 }

@@ -14,8 +14,8 @@ h1 {
 #name {
     font-size: 60px;
 }
-#temp, #humid, #wind {
+#temp, #humid, #wind, #uvindex {
     font-weight: bold;
-    color: navy;
+    color: black;
     font-size: 40px;
 }
