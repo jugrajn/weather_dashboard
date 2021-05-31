@@ -10,3 +10,12 @@ h1 {
 #current-city-container {
     border-right: 2px solid black;
 }
+
+#name {
+    font-size: 60px;
+}
+#temp, #humid, #wind {
+    font-weight: bold;
+    color: navy;
+    font-size: 40px;
+}

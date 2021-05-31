@@ -14,8 +14,9 @@ var windEl = document.querySelector('#wind');
 
 
 function getApi() {
-    let weatherRequest = 'https://api.openweathermap.org/data/2.5/weather?q=' +inputEl.value+'&appid=2def30f041fde414f518e072ee1f5cf7';
+    let weatherRequest = 'https://api.openweathermap.org/data/2.5/weather?q=' +inputEl.value+'&units=metric&appid=2def30f041fde414f518e072ee1f5cf7';
 
+    // Current forecast fetch and function
     fetch(weatherRequest)
         .then(function (response) {
             return response.json();
@@ -30,10 +31,15 @@ function getApi() {
              let windValue = data.wind.speed;
 
              NameEl.innerHTML = nameValue;
-             iconEl.innerHTML = iconValue;
-             tempEl.innerHTML = tempValue;
-             humidEl.innerHTML = humidValue;
-             windEl.innerHTML = windValue;
+             iconEl.setAttribute('src', 'https://openweathermap.org/img/wn/' + iconValue);
+             tempEl.innerHTML = tempValue + '&#176 Celsius';
+             humidEl.innerHTML = 'Humidity: ' + humidValue +'%';
+             windEl.innerHTML = windValue + "MPH";
+
+             var latValue = data.coord.lat; // Latitude value from response data
+             var longValue = data.coord.lon; // Longitude value from response data
+
+             let uvRequest = 
 
              
         });
