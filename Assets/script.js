@@ -33,6 +33,8 @@ function getApi() {
 
              NameEl.innerHTML = nameValue;
              iconEl.setAttribute('src', 'https://openweathermap.org/img/w/' + iconValue+'.png');
+             iconEl.setAttribute('width', '150');
+             iconEl.setAttribute('height', '150');
              tempEl.innerHTML = tempValue + '&#176 Celsius';
              humidEl.innerHTML = 'Humidity: ' + humidValue +'%';
              windEl.innerHTML = windValue + "MPH";
@@ -53,7 +55,19 @@ function getApi() {
                     let uvindexValue = data.current['uvi'];
                     uvIndexEl.innerHTML = uvindexValue;
                 })
-             
+
+            //REQUEST 5-DAY FORECAST---------------------------------
+
+            let cityID = data.id;
+             let futureRequest = 'https://api.openweathermap.org/data/2.5/forecast?id='+cityID+'&appid=2def30f041fde414f518e072ee1f5cf7';
+
+             fetch(futureRequest)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                })
         });
 }
 
