@@ -98,6 +98,14 @@ function getApi() {
                             let foreTempValue = data.list[x].main.temp;
                             foreTempEl[counter].innerHTML = foreTempValue +'&#176 Celsius';
 
+                            //Forecast Humidity
+                            let foreHumidValue = data.list[x].main.humidity;
+                            foreHumidEl[counter].innerHTML = 'Humidity: '+foreHumidValue+'%'
+
+                            //Forecast Windspee
+                            let foreWindValue = data.list[x].wind.speed;
+                            foreWindEl[counter].innerHTML = foreWindValue+"MPH";
+
                             counter++
                         } 
                         else {
