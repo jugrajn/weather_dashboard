@@ -12,10 +12,10 @@ h1 {
 }
 
 #name {
-    font-size: 60px;
+    font-size: xx-large;
 }
 #temp, #humid, #wind, #uvindex {
     font-weight: bold;
     color: black;
-    font-size: 40px;
+    font-size: large;
 }

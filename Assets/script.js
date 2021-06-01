@@ -57,7 +57,7 @@ function getApi() {
                 })
             //REQUEST 5-DAY FORECAST---------------------------------
             let cityID = data.id;
-             let futureRequest = 'https://api.openweathermap.org/data/2.5/forecast?id='+cityID+'&appid=2def30f041fde414f518e072ee1f5cf7';
+             let futureRequest = 'https://api.openweathermap.org/data/2.5/forecast?id='+cityID+'&units=metric&appid=2def30f041fde414f518e072ee1f5cf7';
 
              fetch(futureRequest)
                 .then(function (response) {
@@ -65,19 +65,27 @@ function getApi() {
                 })
                 .then(function (data) {
                     console.log(data);
-                })
 
-            //variables for 5-Day Forecast Cards
-            let foreHeadEl = document.querySelectorAll('foreHead');
-            let foreImgEl = document.querySelectorAll('foreImg');
-            let foreTempEl = document.querySelectorAll('fooreTemp')
-            let foreWindEl = document.querySelectorAll('foreWind');
-            let foreHumidEl = document.querySelectorAll('foreHumid');
-            let forecastCards = document.querySelectorAll('forecast'); //Accessing all Card containers at once
+                      //variables for 5-Day Forecast Cards
+                     let foreHeadEl = document.querySelectorAll('foreHead');
+                    let foreImgEl = document.querySelectorAll('foreImg');
+                    let foreTempEl = document.querySelectorAll('fooreTemp')
+                    let foreWindEl = document.querySelectorAll('foreWind');
+                    let foreHumidEl = document.querySelectorAll('foreHumid');
+                    let forecastCards = document.querySelectorAll('forecast'); //Accessing all Card containers at once
 
-            for (i=0; i < forecastCards.length; i++) {
-                
-            }
+                    for (x=0; x < data.list.length; x=x+8) {
+                    
+                        // for (i=0; i < forecastCards.length; i++) {
+
+                            let dateValue = data.list[x].dt;
+                            console.log(dateValue);
+                            foreHeadEl.innerHTML = moment.unix(dateValue).format('MMM D, YYYY');
+                        // }   
+                    }
+                 })
+
+          
         });
 }
 
