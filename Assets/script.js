@@ -54,6 +54,10 @@ function getApi() {
 
                     let uvindexValue = data.current['uvi'];
                     uvIndexEl.innerHTML = uvindexValue;
+
+
+
+                    
                 })
             //REQUEST 5-DAY FORECAST---------------------------------
             let cityID = data.id;
@@ -65,23 +69,30 @@ function getApi() {
                 })
                 .then(function (data) {
                     console.log(data);
-
+                    var counter=0;
                       //variables for 5-Day Forecast Cards
-                     let foreHeadEl = document.querySelectorAll('foreHead');
+                      let foreHeadEl = document.querySelectorAll('.foreHead');
                     let foreImgEl = document.querySelectorAll('foreImg');
                     let foreTempEl = document.querySelectorAll('fooreTemp')
                     let foreWindEl = document.querySelectorAll('foreWind');
                     let foreHumidEl = document.querySelectorAll('foreHumid');
                     let forecastCards = document.querySelectorAll('forecast'); //Accessing all Card containers at once
-
-                    for (x=0; x < data.list.length; x=x+8) {
-                    
-                        // for (i=0; i < forecastCards.length; i++) {
-
-                            let dateValue = data.list[x].dt;
+                           
+                    for (x=0; x < data.list.length; x++) {
+                      
+                        if (data.list[x].dt_txt.indexOf("15:00:00") !== -1) {
+                            console.log(counter)
+                            console.log(foreHeadEl[counter])
+                            let dateValue = data.list[x].dt_txt;
                             console.log(dateValue);
-                            foreHeadEl.innerHTML = moment.unix(dateValue).format('MMM D, YYYY');
-                        // }   
+                            
+                            foreHeadEl[counter].innerHTML = dateValue; 
+                            counter++
+                        } 
+                        else {
+                        
+                            // console.log(data.list[x].dt_txt)
+                        }                          
                     }
                  })
 
