@@ -55,9 +55,7 @@ function getApi() {
                     let uvindexValue = data.current['uvi'];
                     uvIndexEl.innerHTML = uvindexValue;
                 })
-
             //REQUEST 5-DAY FORECAST---------------------------------
-
             let cityID = data.id;
              let futureRequest = 'https://api.openweathermap.org/data/2.5/forecast?id='+cityID+'&appid=2def30f041fde414f518e072ee1f5cf7';
 
@@ -68,6 +66,18 @@ function getApi() {
                 .then(function (data) {
                     console.log(data);
                 })
+
+            //variables for 5-Day Forecast Cards
+            let foreHeadEl = document.querySelectorAll('foreHead');
+            let foreImgEl = document.querySelectorAll('foreImg');
+            let foreTempEl = document.querySelectorAll('fooreTemp')
+            let foreWindEl = document.querySelectorAll('foreWind');
+            let foreHumidEl = document.querySelectorAll('foreHumid');
+            let forecastCards = document.querySelectorAll('forecast'); //Accessing all Card containers at once
+
+            for (i=0; i < forecastCards.length; i++) {
+                
+            }
         });
 }
 
