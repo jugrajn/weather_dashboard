@@ -69,29 +69,40 @@ function getApi() {
                 })
                 .then(function (data) {
                     console.log(data);
-                    var counter=0;
+                    var counter=0; // Separate variable to keep track of index of all the class arrays below
                       //variables for 5-Day Forecast Cards
                       let foreHeadEl = document.querySelectorAll('.foreHead');
-                    let foreImgEl = document.querySelectorAll('foreImg');
-                    let foreTempEl = document.querySelectorAll('fooreTemp')
-                    let foreWindEl = document.querySelectorAll('foreWind');
-                    let foreHumidEl = document.querySelectorAll('foreHumid');
-                    let forecastCards = document.querySelectorAll('forecast'); //Accessing all Card containers at once
+                    let foreImgEl = document.querySelectorAll('.foreImg');
+                    let foreTempEl = document.querySelectorAll('.foreTemp')
+                    let foreWindEl = document.querySelectorAll('.foreWind');
+                    let foreHumidEl = document.querySelectorAll('.foreHumid');
+                    let forecastCards = document.querySelectorAll('.forecast'); //Accessing all Card containers at once
                            
                     for (x=0; x < data.list.length; x++) {
-                      
+                       
                         if (data.list[x].dt_txt.indexOf("15:00:00") !== -1) {
                             console.log(counter)
                             console.log(foreHeadEl[counter])
+
+                            //Forecast Date
                             let dateValue = data.list[x].dt_txt;
-                            console.log(dateValue);
+                            foreHeadEl[counter].innerHTML = dateValue;
                             
-                            foreHeadEl[counter].innerHTML = dateValue; 
+                            //Forecast icon
+                            let imgValue = data.list[x].weather[0].icon;
+                            foreImgEl[counter].setAttribute('src', 'https://openweathermap.org/img/w/' + imgValue+'.png');
+                            foreImgEl[counter].setAttribute('width', 150);
+                            foreImgEl[counter].setAttribute('height', 150);
+
+                            //Forecast Temperature
+                            let foreTempValue = data.list[x].main.temp;
+                            foreTempEl[counter].innerHTML = foreTempValue +'&#176 Celsius';
+
                             counter++
                         } 
                         else {
                         
-                            // console.log(data.list[x].dt_txt)
+                            
                         }                          
                     }
                  })
