@@ -53,11 +53,7 @@ function getApi() {
                     console.log(data);
 
                     let uvindexValue = data.current['uvi'];
-                    uvIndexEl.innerHTML = uvindexValue;
-
-
-
-                    
+                    uvIndexEl.innerHTML = uvindexValue;                    
                 })
             //REQUEST 5-DAY FORECAST---------------------------------
             let cityID = data.id;
@@ -77,13 +73,17 @@ function getApi() {
                     let foreWindEl = document.querySelectorAll('.foreWind');
                     let foreHumidEl = document.querySelectorAll('.foreHumid');
                     let forecastCards = document.querySelectorAll('.forecast'); //Accessing all Card containers at once
-                           
+
+                    
+                    
                     for (x=0; x < data.list.length; x++) {
                        
                         if (data.list[x].dt_txt.indexOf("15:00:00") !== -1) {
                             console.log(counter)
                             console.log(foreHeadEl[counter])
-
+                            
+                            forecastCards[counter] =""
+                            forecastCards[counter].setAttribute('class', 'card');
                             //Forecast Date
                             let dateValue = data.list[x].dt_txt;
                             foreHeadEl[counter].innerHTML = dateValue;
@@ -102,20 +102,17 @@ function getApi() {
                             let foreHumidValue = data.list[x].main.humidity;
                             foreHumidEl[counter].innerHTML = 'Humidity: '+foreHumidValue+'%'
 
-                            //Forecast Windspee
+                            //Forecast Windspeed
                             let foreWindValue = data.list[x].wind.speed;
                             foreWindEl[counter].innerHTML = foreWindValue+"MPH";
 
                             counter++
                         } 
                         else {
-                        
-                            
+                           
                         }                          
                     }
-                 })
-
-          
+                 })        
         });
 }
 

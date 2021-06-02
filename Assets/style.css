@@ -19,3 +19,13 @@ h1 {
     color: black;
     font-size: large;
 }
+
+.foreHead, .foreTemp, .foreWind, .foreHumid {
+    font-weight: bold;
+}
+
+.card {
+    padding: 9px;
+    border-radius: 10px;
+    background-color: rgb(147, 245, 237);
+}
