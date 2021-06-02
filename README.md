@@ -24,7 +24,7 @@
  * Link: https://jugrajn.github.io/weather_dashboard/
 
 ## Screenshot
-![]("/Assets/screenshot.png")
+![](./Assets/screenshot.png)
 
 ## APPLICATION WORK IN PROGRESS
 
